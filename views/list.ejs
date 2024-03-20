@@ -1,0 +1,34 @@
+<%- include('includes/header'); -%>
+<body>
+
+  <%- include('includes/navbar'); -%>
+  <div id="main">
+    <div class="container">
+
+      <h3>Consultas:</h3>
+      <hr/>
+      <% dados.forEach(dado => { %>
+        
+        <div class="card">
+          <div class="card-header"><%= dado.name %></div>
+          <div class="card-body">
+            <blockquote class="blockquote mb-0">
+              <p><%= dado.description %></p>
+              <footer class="blockquote-footer">
+                <b>E-mail:</b> <cite title="Source Title"><%= dado.email %></cite><br/>
+                <b>CPF:</b> <cite title="Source Title"><%= dado.cpf %></cite><br/>
+                <b>Horario:</b> <cite title="Source Title"><%= dado.time %></cite>
+              </footer>
+            </blockquote>
+          </div>
+        </div><br/>
+
+      <% }); %>
+
+      <% if(dados.length == 0) { %>
+        <p>Nenhum resgistro encontrado</p>
+      <% } %>
+    </div>
+  </div>
+</body>
+<%- include('includes/footer'); -%>

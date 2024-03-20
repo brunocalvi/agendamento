@@ -1,0 +1,29 @@
+<%- include('includes/header'); -%>
+<body>
+
+  <%- include('includes/navbar'); -%>
+  <div id="main">
+    <div class="container">
+      <h2>Agendamentos abertos</h2><br/>
+      
+      <div id="calendar"></div>
+    </div>
+  </div>
+
+</body>
+<%- include('includes/footer'); -%>
+
+<script>
+  var element = document.getElementById("calendar");
+
+  var calendar = new FullCalendar.Calendar(element, {
+    initialView: 'dayGridMonth',
+    locale: 'pt-br',
+    events: 'getcalendar',
+    eventClick: function(info) {
+      window.location.href = `/event/${info.event.id}`;
+    }
+  });
+
+  calendar.render();
+</script>
